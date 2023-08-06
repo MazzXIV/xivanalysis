@@ -7,7 +7,7 @@ export const BLU = ensureStatuses({
 		icon: 'https://xivapi.com/i/013000/013514.png',
 		duration: 12000,
 	},
-	SONG_OF_TORMENT: {
+	BLEEDING: {
 		id: 1714,
 		name: 'Bleeding',
 		icon: 'https://xivapi.com/i/013000/013501.png',
@@ -168,7 +168,7 @@ export const BLU = ensureStatuses({
 	},
 	MIMICRY_HEALER: {
 		id: 2126,
-		name: 'Aetherial Mimicry: Tank',
+		name: 'Aetherial Mimicry: Healer',
 		icon: 'https://xivapi.com/i/013000/013529.png',
 	},
 	SURPANAKHA: {
@@ -177,5 +177,110 @@ export const BLU = ensureStatuses({
 		icon: 'https://xivapi.com/i/019000/019581.png',
 		duration: 3000,
 		stacksApplied: 1,
+	},
+	PHANTOM_FLURRY: {
+		id: 2502,
+		name: 'Phantom Flurry',
+		icon: 'https://xivapi.com/i/013000/013541.png',
+		duration: 5000,
+	},
+	COLD_FOG: {
+		id: 2493,
+		name: 'Cold Fog',
+		icon: 'https://xivapi.com/i/013000/013532.png',
+		duration: 5000,
+	},
+	TOUCH_OF_FROST: {
+		id: 2494,
+		name: 'Touch of Frost',
+		icon: 'https://xivapi.com/i/013000/013533.png',
+		duration: 15000,
+	},
+	TINGLING: {
+		id: 2492,
+		name: 'Tingling',
+		icon: 'https://xivapi.com/i/013000/013531.png',
+		duration: 15000,
+	},
+	ANGELS_SNACK: {
+		id: 2495,
+		name: 'Angel\'s Snack',
+		icon: 'https://xivapi.com/i/013000/013534.png',
+		duration: 15000,
+	},
+	CHELONIAN_GATE: {
+		id: 2496,
+		name: 'Chelonian Gate',
+		icon: 'https://xivapi.com/i/013000/013535.png',
+		duration: 10000,
+	},
+	AUSPICIOUS_TRANCE: {
+		id: 2497,
+		name: 'Auspicious Trance',
+		icon: 'https://xivapi.com/i/013000/013536.png',
+	},
+	SCHILTRON: {
+		id: 3631,
+		name: 'Schiltron',
+		icon: 'https://xivapi.com/i/013000/013542.png',
+		duration: 15000,
+	},
+	BREATH_OF_MAGIC: {
+		id: 3712,
+		name: 'Breath of Magic',
+		icon: 'https://xivapi.com/i/013000/013553.png',
+		duration: 60000,
+	},
+	BEGRIMED: {
+		id: 3636,
+		name: 'Begrimed',
+		icon: 'https://xivapi.com/i/013000/013546.png',
+		duration: 8000,
+	},
+	SPICK_AND_SPAN: {
+		id: 3637,
+		name: 'Spick-and-span',
+		icon: 'https://xivapi.com/i/019000/019447.png',
+		duration: 15000,
+	},
+	BLU_PHYSICAL_VULN_DOWN: {
+		id: 3638,
+		name: 'Physical Vulnerability Down',
+		icon: 'https://xivapi.com/i/013000/013547.png',
+		duration: 10000,
+	},
+	BLU_MAGIC_VULN_DOWN: {
+		id: 3639,
+		name: 'Magic Vulnerability Down',
+		icon: 'https://xivapi.com/i/013000/013548.png',
+		duration: 10000,
+	},
+	WINGED_REPROBATION: {
+		id: 3640,
+		name: 'Winged Reprobation',
+		icon: 'https://xivapi.com/i/019000/019454.png',
+	},
+	WINGED_REDEMPTION: {
+		id: 3641,
+		name: 'Winged Redemption',
+		icon: 'https://xivapi.com/i/013000/013549.png',
+		duration: 10000,
+	},
+	CANDY_CANE: {
+		id: 3642,
+		name: 'Candy Cane',
+		icon: 'https://xivapi.com/i/013000/013550.png',
+		duration: 10000,
+	},
+	MORTAL_FLAME: {
+		id: 3643,
+		name: 'Mortal Flame',
+		icon: 'https://xivapi.com/i/013000/013551.png',
+	},
+	APOKALYPSIS: {
+		id: 3644,
+		name: 'Apokalypsis',
+		icon: 'https://xivapi.com/i/013000/013552.png',
+		duration: 10000,
 	},
 })

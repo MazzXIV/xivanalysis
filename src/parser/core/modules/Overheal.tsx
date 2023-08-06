@@ -1,7 +1,7 @@
 import {Trans} from '@lingui/react'
 import ACTIONS from 'data/ACTIONS'
 import {Event, Events} from 'event'
-import {Analyser} from 'parser/core/Analyser'
+import {Analyser, DisplayOrder} from 'parser/core/Analyser'
 import {filter, oneOf} from 'parser/core/filter'
 import {dependency} from 'parser/core/Injectable'
 import Checklist, {Requirement, TARGET, TieredRule} from 'parser/core/modules/Checklist'
@@ -16,14 +16,15 @@ interface SeverityTiers {
 
 interface TrackedOverhealOpts {
 	bucketId?: number
-	name: JSX.Element | string,
-	color?: string
-	trackedHealIds?: number[],
+	name: JSX.Element | string;
+	color?: string;
+	trackedHealIds?: number[];
 	ignore?: boolean
 	debugName?: string
 }
 
 const REGENERATION_ID: number = 1302
+const DEFAULT_DISPLAY_ORDER: number = 10
 
 const SUGGESTION_SEVERITY_TIERS: SeverityTiers = {
 	0: SEVERITY.MINOR,
@@ -185,6 +186,16 @@ export class Overheal extends Analyser {
 	 * checklist item
 	 */
 	protected displayChecklist: boolean = true
+
+	/**
+	 * Implementing modules MAY modify this value to change the order displayed within the stats panel
+	 */
+	protected statsDisplayOrder: number = DEFAULT_DISPLAY_ORDER
+
+	/**
+	 * Allows for more flexibility in ordering of the checklist if necessary.
+	 */
+	protected displayOrder = DisplayOrder.DEFAULT
 	/**
 	 * Implementing modules MAY wish to override this to set custom severity tiers.
 	 * Do remember that the numbers for checklist are inverted for overheal (e.g., warning at
@@ -207,9 +218,9 @@ export class Overheal extends Analyser {
 	protected checklistRuleBreakout: boolean = false
 
 	// direct healing
-	private direct!: TrackedOverheal
+	protected direct!: TrackedOverheal
 	// Everything else
-	private trackedOverheals: TrackedOverheal[] = []
+	protected trackedOverheals: TrackedOverheal[] = []
 
 	/**
 	 * Implementing modules MAY override this to provide the 'why' for suggestion content
@@ -346,12 +357,13 @@ export class Overheal extends Analyser {
 
 			this.statistics.add(new PieChartStatistic({
 				headings: [
-					'Type of heal',
-					'% of total overheal',
-					'Overheal % per type',
+					<Trans id="core.overheal.header.type" key="core.overheal.header.type">Type of heal</Trans>,
+					<Trans id="core.overheal.header.percenttotal" key="core.overheal.header.percenttotal">% of total overheal</Trans>,
+					<Trans id="core.overheal.header.percenttype" key="core.overheal.header.percenttype">Overheal % per type</Trans>,
 				],
 				data: data,
 				width: 3, // chart's wide, yo
+				statsDisplayOrder: this.statsDisplayOrder,
 			}))
 		}
 
@@ -384,6 +396,7 @@ export class Overheal extends Analyser {
 				description: this.checklistDescription([this.direct, ...this.trackedOverheals]),
 				tiers: this.checklistSeverity,
 				requirements,
+				displayOrder: this.displayOrder,
 			}))
 		}
 
